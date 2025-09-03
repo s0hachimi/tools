@@ -6,6 +6,7 @@ uname -a : kernel used by the system <CVE>
 env : show environmental variables.
 sudo -l : command can be used to list all commands your user can run using sudo.
 /etc/passwd : file can be an easy way to discover users on the system. 
+/etc/crontab : jobs running 
 
 # SUID or SGID
 find / -type f -perm -04000 -ls 2>/dev/null
